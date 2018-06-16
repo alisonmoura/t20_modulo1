@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gerencia de Jogadores</title>
+    <script src="js/model/jogador.js"></script>
+    <script src="js/controller/jogador-controller.js"></script>
+</head>
+<body>
+
+    <form>
+
+        <input id="nome" type="text" placeholder="Nome do jogador">
+        <input id="idade" type="number" placeholder="Idade do jogador">
+        <input id="posicao" type="text" placeholder="Posição do jogador">
+        <input id="selecao" type="text" placeholder="Seleção">
+        <input id="salario" type="number" placeholder="Salário do jogador">
+        <input id="nacionalidade" type="text" placeholder="Nacionalidade do jogador">
+
+        <button type="button" onclick="jogadorController.salvar()">Salvar</button>
+
+    </form>
+
+
+    
+</body>
+</html>

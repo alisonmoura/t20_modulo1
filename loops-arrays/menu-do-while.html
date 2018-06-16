@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Menu do While</title>
+</head>
+<body>
+    
+    
+
+    <div id="resultado">
+
+    </div>
+
+
+
+    <script>
+
+        let resposta;
+        let nomes = []; //cria um vetor vazio
+        
+        do{
+
+            resposta = prompt(`
+                1. Imprime: Jão da Silva
+                2. Imprime: Pafúncio Silveira
+                3. Imprime: Maria da Silveira
+                4. Imprime: Epfanilda Oliveira
+                5. Imprime: Claudyosmar Camargo
+                6. Sair <br>`)
+
+                if(resposta == "1"){
+                    // É o Jão da Silva
+                    nomes.push("Jão da Silva");
+                }else if(resposta == "2"){
+                    // É o Pafúncio
+                    nomes.push("Pafúncio Silveira");
+                }else if(resposta == "3"){
+                    //É a Maria
+                    nomes.push("Maria da Silveira");
+                }else if(resposta == "4"){
+                    // É a Epfanilda Oliveira
+                    nomes.push("Epfanilda Oliveira");
+                }else if(resposta == "5"){
+                    // É o Claudyosmar Camargo
+                    nomes.push("Claudyosmar Camargo");
+                }
+
+        }while(resposta!="6" && resposta!=null );
+        
+
+        // imprimir nomes no HTML
+        for (let i = 0; i < nomes.length; i++) {
+            
+            // imprimir na div
+            document.getElementById("resultado").innerHTML += nomes[i];
+            
+        }
+
+
+    </script>
+
+</body>
+</html>
