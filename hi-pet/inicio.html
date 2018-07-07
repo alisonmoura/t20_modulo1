@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hi Pet - Início</title>
     <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/model/usuario.js"></script>
+    <script src="js/controller/usuario-controller.js"></script>
+    <script>
+        // Instânciando a classe UsuarioController
+        var usuarioController = new UsuarioController();
+    </script>
 </head>
 <body>
 
@@ -19,13 +25,13 @@
         <div class="imagem-icone">
             <img src="img/users.svg">
         </div>
-        <input type="text" placeholder="Nome">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Senha">
-        <button>Salvar</button>
+        <input id="nome" type="text" placeholder="Nome">
+        <input id="email" type="email" placeholder="Email">
+        <input id="senha" type="password" placeholder="Senha">
+        <button type="button" onclick="usuarioController.salvar()">Salvar</button>
     </form>
 
-    <!-- <table id="tabela" border="1">
+    <table id="tabela" class="tabela">
         <thead>
             <th>Nome</th>
             <th>Raça</th>
@@ -42,7 +48,7 @@
                 <td>Jão da Silva</td>
             </tr>
         </tbody>
-    </table> -->
+    </table>
 
 </body>
 </html>
