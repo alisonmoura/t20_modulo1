@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Intrdução - Vuejs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <input type="text" v-model="message" placeholder="Digíte o título aqui">
+        <h2 v-if="mostrar">Esse título é invisivel</h2>
+        <button :click="mostrarH2()">Mostrar</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                mostrar: false
+            },
+            methods: {
+                mostrarH2(){
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

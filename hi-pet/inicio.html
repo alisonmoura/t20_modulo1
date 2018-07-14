@@ -13,7 +13,7 @@
         var usuarioController = new UsuarioController();
     </script>
 </head>
-<body>
+<body onload="usuarioController.carregarTabela()">
 
     <nav class="toolbar">
         <img src="img/back.svg">
@@ -31,22 +31,12 @@
         <button type="button" onclick="usuarioController.salvar()">Salvar</button>
     </form>
 
-    <table id="tabela" class="tabela">
+    <table class="tabela">
         <thead>
             <th>Nome</th>
-            <th>Raça</th>
-            <th>Idade</th>
-            <th>Sexo</th>
-            <th>Proprietário</th>
+            <th>Email</th>
         </thead>
-        <tbody>
-            <tr>
-                <td>Totó</td>
-                <td>SRD</td>
-                <td>10</td>
-                <td>Macho</td>
-                <td>Jão da Silva</td>
-            </tr>
+        <tbody id="tabela">
         </tbody>
     </table>
 

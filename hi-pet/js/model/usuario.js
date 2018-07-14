@@ -6,6 +6,20 @@ class Usuario {
         this.senha;
     }
 
+    validar(usuario){
+        var falha = "";
+        // verificar nome
+        if(usuario.nome == "") falha += "Preencha o nome\n";
+
+        // verificar email
+        if(usuario.email == "") falha += "Preencha o email\n";
+
+        // verificar senha
+        if(usuario.senha == "") falha += "Preencha a senha\n";
+        
+        return falha;
+    }
+
     // Método cadastrar
     cadastrar() {
 
