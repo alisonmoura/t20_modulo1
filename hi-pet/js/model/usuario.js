@@ -1,22 +1,23 @@
 class Usuario {
 
     constructor() {
+        this.id = new Date().getTime();
         this.nome;
         this.email;
         this.senha;
     }
 
-    validar(usuario){
+    validar(usuario) {
         var falha = "";
         // verificar nome
-        if(usuario.nome == "") falha += "Preencha o nome\n";
+        if (usuario.nome == "") falha += "Preencha o nome\n";
 
         // verificar email
-        if(usuario.email == "") falha += "Preencha o email\n";
+        if (usuario.email == "") falha += "Preencha o email\n";
 
         // verificar senha
-        if(usuario.senha == "") falha += "Preencha a senha\n";
-        
+        if (usuario.senha == "") falha += "Preencha a senha\n";
+
         return falha;
     }
 
@@ -47,6 +48,18 @@ class Usuario {
 
     // Método atualizar
     atualizar() {
+
+        let usuarios = this.buscarTodos();
+
+        // usuario: this
+        for (let i = 0; i < usuarios.length; i++) {
+            if (this.id == usuarios[i].id) {
+                usuarios[i] = this; //atualização
+                // atualizar vetor no localStorage
+                localStorage.setItem("usuarios", JSON.stringify(usuarios));
+                break;
+            }
+        }
 
     }
 

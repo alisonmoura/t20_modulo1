@@ -25,16 +25,19 @@
         <div class="imagem-icone">
             <img src="img/users.svg">
         </div>
+        <input id="id" type="hidden">
         <input id="nome" type="text" placeholder="Nome">
         <input id="email" type="email" placeholder="Email">
         <input id="senha" type="password" placeholder="Senha">
         <button type="button" onclick="usuarioController.salvar()">Salvar</button>
+        <button type="button" onclick="usuarioController.atualizar()">Atualizar</button>
     </form>
 
     <table class="tabela">
         <thead>
             <th>Nome</th>
             <th>Email</th>
+            <th>Ações</th>
         </thead>
         <tbody id="tabela">
         </tbody>

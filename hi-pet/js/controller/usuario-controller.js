@@ -5,12 +5,22 @@ class UsuarioController {
         usuario.nome = document.getElementById("nome").value;
         usuario.email = document.getElementById("email").value;
         usuario.senha = document.getElementById("senha").value;
+        usuario.id = document.getElementById("id").value;
     }
 
     limparFormulario() {
         document.getElementById("nome").value = "";
         document.getElementById("email").value = "";
         document.getElementById("senha").value = "";
+    }
+
+    atualizar(){
+        let usuario = new Usuario();
+        this.lerUsuario(usuario);
+        usuario.atualizar();
+        alert("Usuário atualizado com sucesso!");
+        this.limparFormulario();
+        this.carregarTabela();
     }
 
     salvar() {
@@ -64,8 +74,27 @@ class UsuarioController {
             // criar a célula do email
             let celulaEmail = linha.insertCell();
             celulaEmail.innerText = usuarios[i].email;
+
+            // criar a célula da edição
+            let celulaAcao = linha.insertCell();
+           
+            let imgEditar = document.createElement("img");
+            imgEditar.src = "img/edit.svg";
+            celulaAcao.appendChild(imgEditar);
+            imgEditar.setAttribute("onclick","usuarioController.carregarUsuario(" + JSON.stringify(usuarios[i]) + ")")
+
+            let imgDeletar = document.createElement("img");
+            imgDeletar.src = "img/delete.svg";
+            celulaAcao.appendChild(imgDeletar);
         }
 
+    }
+
+    carregarUsuario(usuario){
+        document.getElementById("id").value = usuario.id;
+        document.getElementById("nome").value = usuario.nome;
+        document.getElementById("email").value = usuario.email;
+        document.getElementById("senha").value = usuario.senha;
     }
 
 }
