@@ -5,7 +5,9 @@ class UsuarioController {
         usuario.nome = document.getElementById("nome").value;
         usuario.email = document.getElementById("email").value;
         usuario.senha = document.getElementById("senha").value;
-        usuario.id = document.getElementById("id").value;
+        if (document.getElementById("id").value) {
+            usuario.id = document.getElementById("id").value;
+        }
     }
 
     limparFormulario() {
@@ -14,7 +16,7 @@ class UsuarioController {
         document.getElementById("senha").value = "";
     }
 
-    atualizar(){
+    atualizar() {
         let usuario = new Usuario();
         this.lerUsuario(usuario);
         usuario.atualizar();
@@ -77,20 +79,28 @@ class UsuarioController {
 
             // criar a célula da edição
             let celulaAcao = linha.insertCell();
-           
+
             let imgEditar = document.createElement("img");
             imgEditar.src = "img/edit.svg";
             celulaAcao.appendChild(imgEditar);
-            imgEditar.setAttribute("onclick","usuarioController.carregarUsuario(" + JSON.stringify(usuarios[i]) + ")")
+            imgEditar.setAttribute("onclick", "usuarioController.carregarUsuario(" + JSON.stringify(usuarios[i]) + ")")
 
             let imgDeletar = document.createElement("img");
             imgDeletar.src = "img/delete.svg";
             celulaAcao.appendChild(imgDeletar);
+            imgDeletar.setAttribute("onclick", "usuarioController.remover(" + usuarios[i].id + ")");
         }
 
     }
 
-    carregarUsuario(usuario){
+    remover(id) {
+        let usuario = new Usuario(); // Instanciando o modelo Usuario
+        usuario.remover(id);
+        alert("Usuário removido com sucesso!");
+        this.carregarTabela();
+    }
+
+    carregarUsuario(usuario) {
         document.getElementById("id").value = usuario.id;
         document.getElementById("nome").value = usuario.nome;
         document.getElementById("email").value = usuario.email;

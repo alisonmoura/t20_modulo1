@@ -64,7 +64,18 @@ class Usuario {
     }
 
     // Método remover
-    remover() {
+    remover(id) {
+
+        let usuarios = this.buscarTodos();
+
+        for (let i = 0; i < usuarios.length; i++) {
+            if(id == usuarios[i].id){
+                // Remover usuario na posição i
+                usuarios.splice(i,1);
+                localStorage.setItem("usuarios", JSON.stringify(usuarios));
+                break;
+            }
+        }
 
     }
 
