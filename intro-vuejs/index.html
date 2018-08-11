@@ -14,33 +14,44 @@
     <div id="app">
         {{titulo}}
         <br>
-        {{subtitulo}}
-        <br>
-        <button @click="olaMundo">Clique-me</button>
         <input type="text" placeholder="Nome" v-model="nome">
         <br>
         {{nome}}
+        <br>
+        <button @click="limpar">Limpar</button>
+        <div>
+            <p @click="imprimir(n)" v-for="n in nomes">{{n}}</p>
+        </div>
     </div>
 
     <script>
-        
-        //let titulo = "Olá Mundo em Vuejs!";
+        //let titulo = "Olá mundo em JavaScript";
+        // Pega o elemento = tag
         //document.getElementById("app").innerHTML = titulo;
 
+        // Instanciar o Vue
         new Vue({
             // dados
             data: {
-                titulo: "Olá Mundo em Vuejs",
-                subtitulo: "Código escrito em Vuejs",
-                nome: ""
+                titulo: "Olá mundo em Vuejs",
+                nome: "",
+                nomes: [
+                    "José Pafúncio",
+                    "Josecrilson Sabfino",
+                    "Jão Crisinose",
+                    "Epfâcrisa Espifrone"
+                ]
             },
             // métodos
-            methods:{
-                olaMundo(){
-                    alert("Olá Mundo!");
+            methods: {
+                limpar(){
+                    this.nome = "";
+                },
+                imprimir(nome){
+                    alert(nome);
                 }
             },
-            // ponto de montagem
+            // ponto de acessa
             el: "#app"
         })
 
