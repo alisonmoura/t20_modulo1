@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Introdução ao Vuejs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        {{titulo}}
+        <br>
+        {{subtitulo}}
+        <br>
+        <button @click="olaMundo">Clique-me</button>
+        <input type="text" placeholder="Nome" v-model="nome">
+        <br>
+        {{nome}}
+    </div>
+
+    <script>
+        
+        //let titulo = "Olá Mundo em Vuejs!";
+        //document.getElementById("app").innerHTML = titulo;
+
+        new Vue({
+            // dados
+            data: {
+                titulo: "Olá Mundo em Vuejs",
+                subtitulo: "Código escrito em Vuejs",
+                nome: ""
+            },
+            // métodos
+            methods:{
+                olaMundo(){
+                    alert("Olá Mundo!");
+                }
+            },
+            // ponto de montagem
+            el: "#app"
+        })
+
+    </script>
+</body>
+
+</html>
