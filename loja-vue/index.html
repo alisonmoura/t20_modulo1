@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+    <script src="js/model/usuario.js"></script>
 </head>
 
 <body>
@@ -20,20 +21,31 @@
             <v-toolbar-title class="white--text">{{titulo}}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down">
-                <!-- <v-btn flat>Link One</v-btn>
-                <v-btn flat>Link Two</v-btn>
-                <v-btn flat>Link Three</v-btn> -->
+                <v-menu :nudge-width="100" v-if="usuarioLogado">
+                    <v-toolbar-title slot="activator">
+                        <span>{{usuarioLogado.nome}}</span>
+                        <v-icon dark>arrow_drop_down</v-icon>
+                    </v-toolbar-title>
+
+                    <v-list>
+                        <v-list-tile @click="logout">
+                            <v-list-tile-title>Sair</v-list-tile-title>
+                        </v-list-tile>
+                    </v-list>
+                </v-menu>
             </v-toolbar-items>
         </v-toolbar>
         <v-content>
             <v-container>
+                <v-alert v-for="e in erros" v-model="e.exibir" dismissible type="error">
+                    {{e.mensagem}}
+                </v-alert>
                 <div v-if="!usuarioLogado">
-                    <h1>Olá, cadastre-se par a comprar!</h1>
-                    <v-btn @click="desabilitado = !desabilitado">{{ desabilitado ? "Habilitar" : "Desabilitar" }}</v-btn>
+                    <h1>Olá, cadastre-se para comprar!</h1>
                     <v-form>
-                        <v-text-field :disabled="desabilitado" type="text" label="Nome" v-model="usuario.nome"></v-text-field>
-                        <v-text-field :disabled="desabilitado" type="email" label="Email" v-model="usuario.email"></v-text-field>
-                        <v-text-field :disabled="desabilitado" type="password" label="Senha" v-model="usuario.senha"></v-text-field>
+                        <v-text-field type="text" label="Nome" v-model="usuario.nome"></v-text-field>
+                        <v-text-field type="email" label="Email" v-model="usuario.email"></v-text-field>
+                        <v-text-field type="password" label="Senha" v-model="usuario.senha"></v-text-field>
                         <v-btn type="button" @click="salvar">Salvar</v-btn>
                     </v-form>
                 </div>

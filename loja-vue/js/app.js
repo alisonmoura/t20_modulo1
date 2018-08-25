@@ -5,12 +5,25 @@ new Vue({
         titulo: "Lojinha Vue em Vue!",
         usuario: {},
         usuarioLogado: null,
-        desabilitado: true
+        alert: false,
+        erros: []
+    },
+    mounted(){ // onload da tela
+        this.usuarioLogado = Usuario.buscar();
     },
     methods: {
+        logout(){
+            Usuario.remover();
+            this.usuarioLogado = null;
+        },
         salvar() {
-            this.usuarioLogado = this.usuario;
-            alert("Usuário salvo com sucesso!");
+            this.erros = Usuario.validar(this.usuario);
+            if(this.erros.length >= 1) this.alert = true;
+            else {
+                alert("Usuário salvo com sucesso!");
+                this.usuarioLogado = this.usuario;
+                Usuario.cadastrar(this.usuario) //Salvar o usuário no localstorage
+            }
         }
     },
     // ponto de montagem
