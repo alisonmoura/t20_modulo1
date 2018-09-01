@@ -54,13 +54,11 @@
                     <v-layout row wrap>
                         <v-flex xs12 sm10>
                             <v-layout row wrap>
-                                <v-flex lg3 md4 sm6 xs12 v-for="p in produtos">
+                                <v-flex xs12 v-for="i in 3">
                                     <v-card>
-                                        <img width="200px" :src="p.imagem">
                                         <v-card-title>
                                             <div>
-                                                <h3>{{p.marca}}</h3>
-                                                <div>{{p.preco}}</div>
+                                                <h3>Loja {{i}}</h3>
                                             </div>
                                         </v-card-title>
                                     </v-card>
@@ -68,7 +66,11 @@
                             </v-layout>
                         </v-flex>
                         <v-flex xs12 sm2>
-                            <propaganda>
+                            <v-card color="grey" class="white--text">
+                                <v-card-text class="text-xs-center">
+                                    Anuncie aqui
+                                </v-card-text>
+                            </v-card>
                         </v-flex>
                     </v-layout>
                 </div>
@@ -77,7 +79,6 @@
 
     </v-app>
 
-    <script src="js/components/Propaganda.js"></script>
     <script src="js/app.js"></script>
 </body>
 
