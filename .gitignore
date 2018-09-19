@@ -1,1 +1,4 @@
 .DS_Store
+loja-vue/node_modules
+webpack-intro/node_modules
+/**/node_modules
